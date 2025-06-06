@@ -1,4 +1,4 @@
-import { createContext, useState } from "react"
+import { createContext, useEffect, useState } from "react"
 
 export const recipeContext = createContext(null)
 
@@ -10,9 +10,9 @@ const Recipecontext = (props) => {
             "description": "A classic North Indian dish made with spicy chickpeas (chole) served with fluffy fried bread (bhature).",
             "image": "https://namastebharattaste.com/wp-content/uploads/2023/08/chole_bhature-removebg-preview.png",
             "servings": 4,
-            "prepTime": "20 mins",
-            "cookTime": "30 mins",
-            "totalTime": "50 mins",
+            "prepTime": "20",
+            "cookTime": "30",
+            "totalTime": "50",
             "ingredients": [
             "2 cups chickpeas (soaked overnight)",
             "2 onions (finely chopped)",
@@ -48,6 +48,15 @@ const Recipecontext = (props) => {
             }
         },
     ])
+
+    useEffect(() => {
+        const stored = localStorage.getItem('recipes');
+        let parsedData = JSON.parse(stored || '[]')
+        if(parsedData.length>0){
+            setData(parsedData)
+        }
+    },[])
+
     return (
     <recipeContext.Provider value={{data, setData}}>
         {props.children}

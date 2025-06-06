@@ -4,25 +4,26 @@ import { recipeContext } from "../context/Recipecontext"
 
 const SingleRecipe = () => {
     let params = useParams()
-    let {data} = useContext(recipeContext)
+    let data = JSON.parse(localStorage.getItem('recipes'))
+    console.log(data)
     let recipe = data.find((data) => data.id === params.name)
     return (
         <div className="recipe_details_card">
             <div className="left_side">
-                <img className="recipe-image" src={recipe.image ? recipe.image : null} alt={recipe?.title} />
+                <img className="recipe-image" src={recipe?.image || null} alt={" no image available"} />
                 <h1 className="title">{recipe?.title}</h1>
                 <p className="description">{recipe?.description}</p>
                 <div className="info">
-                <span>Prep: {recipe?.prepTime}</span>
-                <span>Cook: {recipe?.cookTime}</span>
-                <span>Total: {recipe?.totalTime}</span>
+                <span>Prep: {recipe?.prepTime +" mins"}</span>
+                <span>Cook: {recipe?.cookTime+" mins"}</span>
+                <span>Total: {recipe?.totalTime+" mins"}</span>
                 <span>Servings: {recipe?.servings}</span>
                 </div>
             </div>
             <div className="right_side">
                 <div className="section ingredients">
                 <h3>Ingredients</h3>
-                {recipe.ingredients == "" ? "No ingredients available" : 
+                {recipe?.ingredients == "" ? "No ingredients available" : 
                 <ul>
                     {recipe?.ingredients.map((ing, idx) => (
                     <li key={idx}>{ing}</li>
@@ -39,7 +40,7 @@ const SingleRecipe = () => {
                 </div>
                 <div className="section instructions">
                 <h3>Instructions</h3>
-                {recipe.instructions == "" ? "No instructions available" : 
+                {recipe?.instructions == "" ? "No instructions available" : 
                 <ol>
                     {recipe?.instructions.map((step, idx) => (
                     <li key={idx}>{step}</li>

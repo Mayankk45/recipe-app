@@ -1,15 +1,16 @@
-import { useContext } from "react";
-import { Form, useForm } from "react-hook-form"
+import { useContext , useEffect} from "react";
+import { useForm , useWatch} from "react-hook-form"
 import { useFieldArray } from "react-hook-form";
 import { recipeContext } from "../context/Recipecontext";
 import { nanoid } from "nanoid";
 import { useNavigate } from "react-router";
+import { toast } from "react-toastify";
 
 const Create = () => {
 
     let navigate = useNavigate()
 
-    const { register, handleSubmit, control, formState: { errors } } = useForm({
+    const { register, handleSubmit, setValue ,control, formState: { errors } } = useForm({
     defaultValues: {
       title: '',
       description: '',
@@ -29,6 +30,16 @@ const Create = () => {
     },
   });
 
+  // Watch prepTime and cookTime
+    const prepTime = useWatch({ control, name: 'prepTime' });
+    const cookTime = useWatch({ control, name: 'cookTime' });
+
+    // Auto-update totalTime when prep or cook time changes
+    useEffect(() => {
+        const total = (prepTime || 0) + (cookTime || 0);
+        setValue('totalTime', total);
+    }, [prepTime, cookTime, setValue]);
+
     const { fields: ingredients, append: addIngredient, remove: removeIngredient } = useFieldArray({
         control,
         name: 'ingredients',
@@ -45,6 +56,11 @@ const Create = () => {
         formData.id = id
         setData([...data,formData])
         navigate('/recipe')
+        toast.success("New Recipe Created 😀", {
+            position: "top-center",
+            autoClose: 3000
+        });
+        localStorage.setItem("recipes",JSON.stringify([...data,formData]))
     }
 
     return (
@@ -76,31 +92,45 @@ const Create = () => {
 
                 <div className="form-grid">
                     <input 
-                    {...register('servings', { 
-                        required: 'Servings is required', 
-                        min: { value: 1, message: 'Must be at least 1' }, 
-                        valueAsNumber: true 
-                    })} 
-                    placeholder="Servings" 
-                    type="number"
+                        {...register('servings', { 
+                            required: 'Servings is required', 
+                            min: { value: 1, message: 'Must be at least 1' }, 
+                            valueAsNumber: true 
+                        })} 
+                        placeholder="Servings" 
+                        type="number"
                     />
                     {errors.servings && <p className="error">{errors.servings.message}</p>}
 
                     <input 
-                    {...register('prepTime', { required: 'Prep time is required' })} 
-                    placeholder="Prep Time" 
+                        {...register('prepTime', { 
+                            required: 'Prep time is required',
+                            min: { value: 1, message: 'Must be at least 1' }, 
+                            valueAsNumber: true 
+                        })} 
+                        placeholder="Prep Time in minutes" 
+                        type="number"
                     />
                     {errors.prepTime && <p className="error">{errors.prepTime.message}</p>}
 
                     <input 
-                    {...register('cookTime', { required: 'Cook time is required' })} 
-                    placeholder="Cook Time" 
+                        {...register('cookTime', { 
+                            required: 'Cook time is required',
+                            min: { value: 1, message: 'Must be at least 1' }, 
+                            valueAsNumber: true 
+                        })} 
+                        placeholder="Cook Time in minutes" 
+                        type="number"
                     />
                     {errors.cookTime && <p className="error">{errors.cookTime.message}</p>}
 
                     <input 
-                    {...register('totalTime', { required: 'Total time is required' })} 
-                    placeholder="Total Time" 
+                        {...register('totalTime', { 
+                            required: 'Total time is required'
+                        })} 
+                        placeholder="Total Time in minutes" 
+                        type="number"
+                        readOnly // optional: make it read-only since it's auto-set
                     />
                     {errors.totalTime && <p className="error">{errors.totalTime.message}</p>}
                 </div>

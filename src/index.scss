@@ -564,6 +564,154 @@ header{
     }
 }
 
+.about-page {
+    background-color: #fffaf0;
+    padding: 4rem 1.5rem;
+    min-height: 100vh;
+    color: #333;
+    font-family: 'Segoe UI', sans-serif;
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .title {
+        font-size: 3rem;
+        text-align: center;
+        color: #2e7d32;
+        margin-bottom: 2rem;
+    }
+
+    .intro {
+        font-size: 1.25rem;
+        text-align: center;
+        margin-bottom: 2rem;
+
+        .brand {
+            font-weight: bold;
+            color: #43a047;
+        }
+    }
+
+    .section {
+        margin-bottom: 2.5rem;
+
+        .section-title {
+            font-size: 1.5rem;
+            color: #388e3c;
+            margin-bottom: 1rem;
+        }
+
+        .section-text {
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .benefits {
+            list-style: none;
+            padding-left: 0;
+
+            li {
+                margin-bottom: 0.5rem;
+                font-size: 1rem;
+                padding-left: 1rem;
+                position: relative;
+
+                &::before {
+                    content: '•';
+                    color: #66bb6a;
+                    position: absolute;
+                    left: 0;
+                }
+            }   
+        }
+    }
+
+    .closing {
+        text-align: center;
+        font-size: 1.2rem;
+        color: #4caf50;
+        margin-top: 2rem;
+    }
+}
+
+.contact-page {
+    background-color: #fefefe;
+    min-height: 100vh;
+    padding: 4rem 1.5rem;
+    font-family: 'Segoe UI', sans-serif;
+    color: #333;
+
+    .container {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .title {
+        font-size: 2.5rem;
+        color: #2e7d32;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    .subtitle {
+        text-align: center;
+        font-size: 1.2rem;
+        color: #666;
+        margin-bottom: 2rem;
+    }
+
+    .contact-form {
+        background: #fff;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 1.5rem;
+
+            label {
+                font-weight: 600;
+                margin-bottom: 0.5rem;
+            }
+
+            input,
+            textarea {
+                padding: 0.75rem 1rem;
+                border: 1px solid #ccc;
+                border-radius: 8px;
+                font-size: 1rem;
+                resize: vertical;
+
+                &:focus {
+                    border-color: #4caf50;
+                    outline: none;
+                    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+                }
+            }
+        }
+
+        .submit-button {
+            background-color: #4caf50;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+
+            &:hover {
+                background-color: #43a047;
+            }
+        }
+    }
+}
+
+
 
 
 

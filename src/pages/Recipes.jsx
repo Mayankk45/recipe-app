@@ -18,9 +18,9 @@ const Recipes = () => {
             </div>
             <h1>{recipe.title}</h1>
             <h3 className='desc'>{recipe?.description}</h3>
-            <h4>Preperation time : {recipe?.prepTime}</h4>
-            <h4>Cook time : {recipe?.cookTime}</h4>
-            <h4>Total time : {recipe?.cookTime}</h4>
+            <h4>Preperation time : {recipe?.prepTime +" mins"}</h4>
+            <h4>Cook time : {recipe?.cookTime+" mins"}</h4>
+            <h4>Total time : {recipe?.totalTime+" mins"}</h4>
             {/* <div className="nutrition">
                 <h4>Nutrition Facts:</h4>
                 <p>Calories: {recipe.nutrition.calories}</p>

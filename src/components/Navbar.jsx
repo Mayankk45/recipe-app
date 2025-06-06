@@ -11,7 +11,7 @@ const Navbar = () => {
             <div className="logo">
                 <img src="src\assets\header_logo.png" alt="" />
             </div>
-            <h2><span className="span">COOK</span>ING</h2>
+            <h2><span className="span">TASTY</span>BITES</h2>
         </div>
         <div className="navbar_header_right">
             <NavLink className={(e) => handleClick(e)} to="/" >Home</NavLink>
