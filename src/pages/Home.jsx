@@ -27,7 +27,7 @@ const Home = () => {
     <>
         <section className='view_1'>
             <div className="view_1_leaf">
-                <img src="src\assets\leaf.png" alt="leaf" />
+                <img src="/leaf.png" alt="leaf" />
             </div>
             <div className="view_1_content">
                 <h1>simple and tasty recipes</h1>
@@ -39,7 +39,7 @@ const Home = () => {
                 </div>
             </div>
             <div className="view_1_fruit">
-                <img src="src\assets\fruit.jfif" alt="" />
+                <img src="/fruit.jfif" alt="fruit" />
             </div>
         </section>
 
@@ -47,17 +47,17 @@ const Home = () => {
             <h2>Why Choose Us?</h2>
             <div className="view_2_features">
                 <div className="feature">
-                    <img src="src\assets\time-saving.png" alt="Time-saving" />
+                    <img src="/time-saving.png" alt="Time-saving" />
                     <h4>Time-Saving</h4>
                     <p>Our recipes are quick to prepare, helping you enjoy delicious meals without spending hours in the kitchen.</p>
                 </div>
                 <div className="feature">
-                    <img src="src\assets\healthy-options.png" alt="Healthy Options" />
+                    <img src="/healthy-options.png" alt="Healthy Options" />
                     <h4>Healthy Options</h4>
                     <p>We offer a variety of nutritious recipes to support your lifestyle without compromising on taste.</p>
                 </div>
                 <div className="feature">
-                    <img src="src\assets\tissues.png" alt="Community Support" />
+                    <img src="/tissues.png" alt="Community Support" />
                     <h4>Community Support</h4>
                     <p>Join a growing community of food lovers and share tips, photos, and inspiration every day.</p>
                 </div>
@@ -70,7 +70,7 @@ const Home = () => {
                 <div className="services_left">
                     <div className="service">
                         <div className="service_logo">
-                            <img src="src/assets/quality-food.png" alt="Quality Food" />
+                            <img src="/quality-food.png" alt="Quality Food" />
                         </div>
                         <div className="service_content">
                             <h3>Quality Food</h3>
@@ -79,7 +79,7 @@ const Home = () => {
                     </div>
                     <div className="service">
                         <div className="service_logo">
-                            <img src="src/assets/hot-food.png" alt="Serve Hot" />
+                            <img src="/hot-food.png" alt="Serve Hot" />
                         </div>
                         <div className="service_content">
                             <h3>Serve Hot</h3>
@@ -88,7 +88,7 @@ const Home = () => {
                     </div>
                     <div className="service">
                         <div className="service_logo">
-                            <img src="src/assets/ingredients.png" alt="Ingredients" />
+                            <img src="/ingredients.png" alt="Ingredients" />
                         </div>
                         <div className="service_content">
                             <h3>Ingredients</h3>
@@ -99,7 +99,7 @@ const Home = () => {
                 <div className="services_right">
                     <div className="service">
                         <div className="service_logo">
-                            <img src="src/assets/chef.png" alt="Cook like a Chef" />
+                            <img src="/chef.png" alt="Cook like a Chef" />
                         </div>
                         <div className="service_content">
                             <h3>Cook like a Chef</h3>
@@ -108,7 +108,7 @@ const Home = () => {
                     </div>
                     <div className="service">
                         <div className="service_logo">
-                            <img src="src/assets/easy-recipes.png" alt="Easy Recipes" />
+                            <img src="/easy-recipes.png" alt="Easy Recipes" />
                         </div>
                         <div className="service_content">
                             <h3>Easy Recipes</h3>
@@ -118,7 +118,6 @@ const Home = () => {
                 </div>
             </div>
         </section>
-
     </>
     )
 }
