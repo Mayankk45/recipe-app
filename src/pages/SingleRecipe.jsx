@@ -1,12 +1,27 @@
 import { useContext } from "react"
-import { useParams } from "react-router"
+import { useNavigate, useParams } from "react-router"
 import { recipeContext } from "../context/Recipecontext"
+import { toast } from "react-toastify"
 
 const SingleRecipe = () => {
+    const navigate = useNavigate()
+    const {data,setData} = useContext(recipeContext)
+
     let params = useParams()
-    let data = JSON.parse(localStorage.getItem('recipes'))
-    console.log(data)
-    let recipe = data.find((data) => data.id === params.name)
+    let recipes = JSON.parse(localStorage.getItem('recipes')) || []
+    let recipe = recipes.find((recipes) => recipes.id === params.name)
+
+    const handleDelete = (id) => {
+        let filteredData = data.filter((recipe) => recipe.id != id)
+        setData(filteredData)
+        navigate('/recipe')
+        toast.success("recipe deleted! 😒",{
+            position: "top-center",
+            autoClose: 3000
+        })
+        localStorage.setItem('recipes',JSON.stringify(filteredData))
+    }
+
     return (
         <div className="recipe_details_card">
             <div className="left_side">
@@ -19,6 +34,7 @@ const SingleRecipe = () => {
                 <span>Total: {recipe?.totalTime+" mins"}</span>
                 <span>Servings: {recipe?.servings}</span>
                 </div>
+                <button className="deleteRecipe" onClick={() => handleDelete(recipe.id)}>Delete Recipe</button>
             </div>
             <div className="right_side">
                 <div className="section ingredients">

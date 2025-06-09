@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useRef } from "react";
 
 const Home = () => {
 
@@ -17,6 +17,12 @@ const Home = () => {
     };
     window.addEventListener("scroll", handleScroll);
     
+    const targetRef = useRef(null);
+
+    const scrollToSection = () => {
+        targetRef.current?.scrollIntoView({ behavior: "smooth" });
+    };
+
     return (
     <>
         <section className='view_1'>
@@ -29,7 +35,7 @@ const Home = () => {
                     <h4>
                         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit, iste nesciunt? Non nostrum laborum, sed blanditiis obcaecati provident cum doloribus.lorem Non nostrum laborum, sed blanditiis obcaecati provident cum doloribus.
                     </h4>
-                    <div className="getstarted">GET STARTED</div>
+                    <div className="getstarted" onClick={() => scrollToSection()}>GET STARTED</div>
                 </div>
             </div>
             <div className="view_1_fruit">
@@ -37,60 +43,82 @@ const Home = () => {
             </div>
         </section>
 
-        <section className='view_3'>
+        <section className="view_2">
+            <h2>Why Choose Us?</h2>
+            <div className="view_2_features">
+                <div className="feature">
+                    <img src="src\assets\time-saving.png" alt="Time-saving" />
+                    <h4>Time-Saving</h4>
+                    <p>Our recipes are quick to prepare, helping you enjoy delicious meals without spending hours in the kitchen.</p>
+                </div>
+                <div className="feature">
+                    <img src="src\assets\healthy-options.png" alt="Healthy Options" />
+                    <h4>Healthy Options</h4>
+                    <p>We offer a variety of nutritious recipes to support your lifestyle without compromising on taste.</p>
+                </div>
+                <div className="feature">
+                    <img src="src\assets\tissues.png" alt="Community Support" />
+                    <h4>Community Support</h4>
+                    <p>Join a growing community of food lovers and share tips, photos, and inspiration every day.</p>
+                </div>
+            </div>
+        </section>
+
+        <section ref={targetRef} className='view_3'>
             <h2>our services</h2>
             <div className="view_3_services">
                 <div className="services_left">
                     <div className="service">
                         <div className="service_logo">
-                            <img src="src\assets\knife.png" alt="" />
+                            <img src="src/assets/quality-food.png" alt="Quality Food" />
                         </div>
                         <div className="service_content">
-                            <h3>quality food</h3>
-                            <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis et non deserunt ut repudiandae ipsum quia iste?</h5>
+                            <h3>Quality Food</h3>
+                            <h5>We focus on delivering meals made from fresh, top-quality ingredients to ensure a delightful taste in every bite.</h5>
                         </div>
                     </div>
                     <div className="service">
                         <div className="service_logo">
-                            <img src="src\assets\knife.png" alt="" />
+                            <img src="src/assets/hot-food.png" alt="Serve Hot" />
                         </div>
                         <div className="service_content">
-                            <h3>quality food</h3>
-                            <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis et non deserunt ut repudiandae ipsum quia iste?</h5>
+                            <h3>Serve Hot</h3>
+                            <h5>Our food is prepared and served hot, keeping flavors intact and offering a comforting dining experience.</h5>
                         </div>
                     </div>
                     <div className="service">
                         <div className="service_logo">
-                            <img src="src\assets\knife.png" alt="" />
+                            <img src="src/assets/ingredients.png" alt="Ingredients" />
                         </div>
                         <div className="service_content">
-                            <h3>quality food</h3>
-                            <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis et non deserunt ut repudiandae ipsum quia iste?</h5>
+                            <h3>Ingredients</h3>
+                            <h5>Only the finest and hand-picked ingredients are used in our recipes, ensuring nutrition and taste go hand-in-hand.</h5>
                         </div>
                     </div>
                 </div>
                 <div className="services_right">
                     <div className="service">
                         <div className="service_logo">
-                            <img src="src\assets\knife.png" alt="" />
+                            <img src="src/assets/chef.png" alt="Cook like a Chef" />
                         </div>
                         <div className="service_content">
-                            <h3>quality food</h3>
-                            <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis et non deserunt ut repudiandae ipsum quia iste?</h5>
+                            <h3>Cook like a Chef</h3>
+                            <h5>We guide you with techniques and tips so you can prepare dishes like a professional chef at home.</h5>
                         </div>
                     </div>
                     <div className="service">
                         <div className="service_logo">
-                            <img src="src\assets\knife.png" alt="" />
+                            <img src="src/assets/easy-recipes.png" alt="Easy Recipes" />
                         </div>
                         <div className="service_content">
-                            <h3>quality food</h3>
-                            <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis et non deserunt ut repudiandae ipsum quia iste?</h5>
+                            <h3>Easy Recipes</h3>
+                            <h5>Follow our simple, step-by-step recipes that make cooking fun, quick, and easy for everyone.</h5>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
     </>
     )
 }

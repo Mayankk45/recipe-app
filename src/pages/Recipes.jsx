@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { recipeContext } from '../context/Recipecontext'
 import { useNavigate } from 'react-router'
 
@@ -6,6 +6,15 @@ const Recipes = () => {
     let navigate = useNavigate()
     let {data,setData} = useContext(recipeContext)
     
+    // setting default recipe in localStorage 
+    useEffect(() => {
+        let recipes = localStorage.getItem("recipes")
+        if(recipes.length == 2){
+            localStorage.setItem('recipes',JSON.stringify(data))
+            console.log(recipes.length)
+        }
+    },[])
+
     const handleRecipeClick = (id) => {
         navigate(`/recipe/details/${id}`)
     }

@@ -58,9 +58,9 @@ const Recipecontext = (props) => {
     },[])
 
     return (
-    <recipeContext.Provider value={{data, setData}}>
-        {props.children}
-    </recipeContext.Provider>
+        <recipeContext.Provider value={{data, setData}}>
+            {props.children}
+        </recipeContext.Provider>
     )
 }
 
