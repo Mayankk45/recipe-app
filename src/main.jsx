@@ -8,7 +8,7 @@ import { ToastContainer } from 'react-toastify';
 
 createRoot(document.getElementById('root')).render(
     <Recipecontext>
-        <BrowserRouter>
+        <BrowserRouter  basename="/recipe-app">
             <App />
             <ToastContainer />
         </BrowserRouter>

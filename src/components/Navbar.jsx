@@ -1,15 +1,16 @@
 import { NavLink } from "react-router"
-import { useEffect } from "react";
 
 const Navbar = () => {
 
     const handleClick =(e) => `navlink ${e.isActive ? "clicked_link" : ''}`
 
+    // Base path for public folder in Vite
+    const base = import.meta.env.BASE_URL;
   return (
     <header>
         <div className="navbar_header_left">
             <div className="logo">
-                <img src="src\assets\header_logo.png" alt="" />
+                <img src={`${base}/assets/header_logo.png`} alt="" />
             </div>
             <h2><span className="span">TASTY</span>BITES</h2>
         </div>
