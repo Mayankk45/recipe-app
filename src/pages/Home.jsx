@@ -1,7 +1,9 @@
 import { useRef, useEffect } from "react";
+import { Navigate, useNavigate } from "react-router";
 
 const Home = () => {
     const targetRef = useRef(null);
+    const navigate = useNavigate()
 
     // Scroll header hide/show functionality
     useEffect(() => {
@@ -158,6 +160,24 @@ const Home = () => {
                     </div>
                 </div>
             </section>
+
+            <footer className="footer">
+                <div className="footer_content">
+                    <h2>🍽️ RecipeApp</h2>
+                    <p>Simple and tasty recipes, made with love.</p>
+                    <div className="footer_links">
+                        <span onClick={() => navigate("/about")}>About</span>
+                        <span onClick={() => navigate("/contact")}>Contact</span>
+                        <span onClick={() => {}}>Privacy</span>
+                        <a href="#about">About</a>
+                        <a href="#contact">Contact</a>
+                        <a href="#privacy">Privacy</a>
+                    </div>
+                    <p className="footer_copy">
+                        &copy; {new Date().getFullYear()} RecipeApp. All rights reserved.
+                    </p>
+                </div>
+            </footer>
         </>
     );
 };

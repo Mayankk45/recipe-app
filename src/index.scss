@@ -785,6 +785,50 @@ header{
     }
 }
 
+.footer {
+    background-color: #f8f8f8;
+    padding: 2rem 1rem;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 0 -1px 8px rgba(0, 0, 0, 0.05);
+    margin-top: 4rem;
+
+    .footer_content {
+        max-width: 900px;
+        margin: 0 auto;
+
+        h2 {
+            margin-bottom: 0.5rem;
+            font-size: 1.8rem;
+            color: #333;
+        }
+
+        p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .footer_links {
+            margin: 1rem 0;
+
+            a {
+                margin: 0 1rem;
+                color: #007b7b;
+                text-decoration: none;
+                font-weight: 500;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        .footer_copy {
+            font-size: 0.875rem;
+            color: #999;
+        }
+    }
+}
 
 
 
