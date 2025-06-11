@@ -9,12 +9,12 @@ import SingleRecipe from "../pages/SingleRecipe"
 const Mainroutes = () => {
     return (
         <Routes>
-            <Route path="/" element= <Home/> />
-            <Route path="/about" element= <About/> />
-            <Route path="/create" element= <Create/> />
-            <Route path="/contact" element=<Contact/> />
-            <Route path="/recipe" element= <Recipes/> />
-            <Route path="/recipe/details/:name" element= <SingleRecipe/> />
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/create" element={<Create />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/recipe" element={<Recipes />} />
+            <Route path="/recipe/details/:name" element={<SingleRecipe />} />
         </Routes>
     )
 }

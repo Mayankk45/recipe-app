@@ -9,9 +9,8 @@ const Recipes = () => {
     // setting default recipe in localStorage 
     useEffect(() => {
         let recipes = localStorage.getItem("recipes")
-        if(recipes.length == 2){
+        if(!recipes || recipes.length == 2){
             localStorage.setItem('recipes',JSON.stringify(data))
-            console.log(recipes.length)
         }
     },[])
 
