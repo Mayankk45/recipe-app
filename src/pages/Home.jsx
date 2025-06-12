@@ -38,9 +38,7 @@ const Home = () => {
                     <h1>simple and tasty recipes</h1>
                     <div className="view_1_content_bottom">
                         <h4>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit,
-                            iste nesciunt? Non nostrum laborum, sed blanditiis obcaecati
-                            provident cum doloribus.
+                            Our recipe app brings you easy-to-follow instructions, beautiful visuals, and tasty meals that anyone can cook. Whether you're a beginner or a seasoned home chef, you'll find inspiration for every occasion – from quick lunches to cozy dinners.
                         </h4>
                         <div className="getstarted" onClick={scrollToSection}>
                             GET STARTED
